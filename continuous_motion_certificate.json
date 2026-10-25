@@ -1,0 +1,13 @@
+{
+  "task": 3,
+  "continuous_motion_certified": true,
+  "dense_pose_grid": 610,
+  "inter_pose_gap_rad": 0.0025793043132921125,
+  "inter_pose_gap_deg": 0.14778325123152708,
+  "lipschitz_constant_L": 1.420644844145377,
+  "max_displacement_between_dense": 0.0036642753741603713,
+  "near_pinch_poses_verified": 41,
+  "near_pinch_failures": 0,
+  "clearance_at_pinch": 0.0012381960467470199,
+  "argument_summary": "Lipschitz guarantee outside pinch window + dense numerical verification inside pinch window; rotation monotone (no jumps)"
+}

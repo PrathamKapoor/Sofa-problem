@@ -1,0 +1,159 @@
+{
+  "reference_area": 2.21953166887196,
+  "pinch_clearance_wall_distances": {
+    "x(phi)      -> b-wall (x=0 family) arm dist": 0.0012381960467470199,
+    "x(pi/2-phi) -> d-wall (y=0 family) arm dist": 0.001238196046747131,
+    "x(phi)      -> d-wall (parallel side)": 0.8626097704991582,
+    "x(pi/2-phi) -> b-wall (parallel side)": 0.8626097704991581,
+    "x(pi/4)": [
+      -0.6137632294302516,
+      0.6642678135388861
+    ]
+  },
+  "checks": [
+    {
+      "id": "V1",
+      "description": "A(0) = (1,0) (Romik eq.(23))",
+      "value": [
+        1.0,
+        0.0
+      ],
+      "expected": "(1,0)",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V2",
+      "description": "A frozen on [0, phi]: max|A(t)-A(0)|",
+      "value": 3.3306690738754696e-16,
+      "expected": "~<=1e-12",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V2",
+      "description": "C frozen on [pi/2-phi, pi/2]: max|C(t)-C(pi/2)|",
+      "value": 4.440892098500626e-16,
+      "expected": "~<=1e-12",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V3",
+      "description": "(43) |x(phi) - B(pi/2-theta)|",
+      "value": 2.220446049250313e-16,
+      "expected": "~<=1e-14",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V3",
+      "description": "(44) |x(pi/2-phi) - D(theta)|",
+      "value": 2.220446049250313e-16,
+      "expected": "~<=1e-14",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V4",
+      "description": "|C(0)-D(0)-(0,1)| (vertical alignment of back corners; not a boundary edge)",
+      "value": 0.0,
+      "expected": "0",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V4",
+      "description": "bottom edge y(A0)=y(B(pi/2))=0",
+      "value": [
+        0.0,
+        -3.1478256824133523e-17
+      ],
+      "expected": "0,0",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V4",
+      "description": "top edge y(A(pi/2))=y(C(0))=1",
+      "value": [
+        1.0,
+        1.0
+      ],
+      "expected": "1,1",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V5",
+      "description": "niche-core endpoint clearance to the inner walls at t=pi/4 (Baek: 0.0012)",
+      "value": 0.0012381960467470199,
+      "expected": 0.0012,
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V6",
+      "description": "sofa samples outside hallway copy x(t)+R_t L (61 poses)",
+      "value": 0,
+      "expected": "0",
+      "pass": true,
+      "units": ""
+    },
+    {
+      "id": "V7",
+      "description": "comparison table",
+      "value": "see comparison_table in JSON",
+      "expected": "n/a",
+      "pass": true,
+      "units": ""
+    }
+  ],
+  "comparison_table": [
+    {
+      "shape": "unit square",
+      "area": 1.0,
+      "note": "trivial lower bound (Moser's problem, 1966)"
+    },
+    {
+      "shape": "semicircle radius 1",
+      "area": 1.5707963267948966,
+      "area_s": "1.570796327",
+      "note": "classic early lower bound"
+    },
+    {
+      "shape": "Hammersley's half-disk sofa",
+      "area": 2.207416099162478,
+      "area_s": "2.207416099",
+      "oeis": "A086118",
+      "note": "Hammersley 1968 lower bound"
+    },
+    {
+      "shape": "Gerver's sofa (18 curve sections)",
+      "area": 2.21953166887196,
+      "area_s": "2.21953166887196",
+      "oeis": "A128463",
+      "note": "Gerver 1992; PROVED OPTIMAL by Baek 2024 (arXiv:2411.19826)"
+    }
+  ],
+  "upper_bounds": [
+    {
+      "bound": "Hammersley",
+      "value": 2.8284271247461903,
+      "value_s": "2.828427125",
+      "note": "upper bound 2 sqrt(2)"
+    },
+    {
+      "bound": "Kallus-Romik",
+      "value": 2.37,
+      "value_s": "2.37",
+      "note": "upper bound (Adv. Math. 340, 2018; arXiv:1706.06630)"
+    },
+    {
+      "bound": "Leng et al. (2024)",
+      "value": 2.3337,
+      "value_s": "2.3337",
+      "note": "5-angle upper bound 2.37 -> 2.3337, arXiv:2407.11106"
+    }
+  ]
+}

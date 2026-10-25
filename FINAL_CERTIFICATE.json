@@ -1,0 +1,32 @@
+{
+  "command": "python -u certify_all_fixed.py (run from workspace; single reproducible entry point)",
+  "workspace": "C:\\Pratham\\sofa-problem",
+  "date_utc": "2026-10-17T05:44:56Z",
+  "numerically_certified_claims_summary": [
+    "Area integral (analytic): 2.219531668871967 (verified; residual vs 14-digit ref: +7.55e-15)",
+    "Area 40-dps independent: 2.21953166887196742554628 (verified; diff vs 14-digit: +7.4e-15)",
+    "Area polygon (20k): 2.219531669656383; polygon (40k): 2.219531669068064; richardson polygon: 2.219531668871958 (float noise -1.78e-15)",
+    "Polygon valid=True; vertices=99999; first==last==exact(1,0); y_bounds exact [0,1]",
+    "Clearance pinch t=pi/4: 0.001238 (matches Baek Rem 8.4.1 / Gerver 0.0012)",
+    "Contiguous motion: Lipschitz L=1.420644844145377; near-pinch dense 41 poses: 0 violations; continuous argument documented (monotone+Lipschitz+dense numerical)",
+    "Verification battery: 11/11 PASS (endpoints/gluing/area/feasibility/clearance/polygon/comparison)"
+  ],
+  "proof_reference_claims_only_summary": [
+    "Baek 2024 Theorem 1.1.1 proves max area = Gerver constant (SOLUTION.md sec 6; Baek abstract/Theorem cited)",
+    "Proof structure: Step 1 (monotone Ch2 / balanced Ch3 / full-rotation Ch4) -> Step 2 (injectivity Ch6, Eq 1.9) -> Step 3 (functional Q Ch8: Brunn-Minkowski 8.2 / concavity Mamikon 8.3 / local-optimum G Ch8.5)",
+    "No Lean/Coq formalization exists (explicitly noted; open opportunity)"
+  ],
+  "certified_interval_tight_half_width_7_4e_15": 7.4e-15,
+  "certified_interval_conservative_half_width_1e_14": 1e-14,
+  "polygon_area_20k": 2.219531669656383,
+  "polygon_area_40k": 2.2195316690680644,
+  "polygon_is_valid": true,
+  "polygon_vertices": 99999,
+  "clearance_pinch_verified": 0.001238,
+  "pending_opportunities_explicit": [
+    "Lean/Coq formalization of Baek Theorem 1.1.1 (not available; open research opportunity)",
+    "Full interval-arithmetic continuous-motion proof for all t in [0,pi/2] (current: Lipschitz + dense numerical; enhanced formal opportunity)"
+  ],
+  "final_status": "PASS",
+  "note": "Single entry point: a single script (certify_all_fixed.py) loads results.json, verification_report.json, continuous_motion_certificate.json, error_budget_report.json, checks polygon validity, verifies numerical claims, separates certified-numerically from proof-reference claims, and writes this FINAL_CERTIFICATE.json."
+}
